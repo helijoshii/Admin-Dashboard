@@ -6,13 +6,14 @@ import { Navbar, Footer, Sidebar, ThemeSettings, LineChart} from './components';
 import { Ecommerce, Orders, Calendar, Employees, Stacked, Pyramid, Customers, Kanban, Area, 
           Bar, Pie, Financial, ColorMapping, ColorPicker, Editor} from './pages'
 import './App.css';
+import { useStateContext } from './contexts/ContextProvider';
 
 const App = () => {
-  const activeMenu = true;
+  const { activeMenu } = useStateContext();
   return (
     <div>
       <BrowserRouter>
-        <div className='flex rlative dark:bg-main-dark-bg'>
+        <div className='flex relative dark:bg-main-dark-bg'>
           <div className='fixed right-4 bottom-4' style = {{zIndex: '1000'}}>
             <TooltipComponent content="Settings" position="Top">
               <button type = "button" className='text-3xl p-3 hover:drop-shadow-xl hover:bg-light-gray text-white'
