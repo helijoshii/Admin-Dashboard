@@ -26,7 +26,7 @@ const NavButton = ({ title, customFunc, icon, color, dotColor }) => (
 
 
 const Navbar = () => {
-  const {activeMenu, setActiveMenu, isClicked, setIsClciked, handleClick, screenSize, setScreenSize } = useStateContext();
+  const {activeMenu, setActiveMenu, isClicked, setIsClciked, handleClick, screenSize, setScreenSize, currentContext } = useStateContext();
 
   useEffect(() => {
     const handleResize = () => setScreenSize (window.innerWidth);
@@ -50,12 +50,12 @@ const Navbar = () => {
 
   return (
     <div className='flex justify-between p-2 md:mx-6 relative'>
-      <NavButton title="Menu" customFunc={() => setActiveMenu((prevActiveMenu) =>!prevActiveMenu )} color = "blue" icon={<AiOutlineMenu/>}/>
+      <NavButton title="Menu" customFunc={() => setActiveMenu((prevActiveMenu) =>!prevActiveMenu )} color = "{currentContext}" icon={<AiOutlineMenu/>}/>
       
       <div className='flex'>
-        <NavButton title="Cart" customFunc= {() => handleClick('cart')} color = "blue" icon={<FiShoppingCart/>}/>
-        <NavButton title="Chat" dotColor= "#03C907" customFunc= {() => handleClick('cart')} color = "blue" icon={<BsChatLeft />} />
-        <NavButton title="Notification" dotColor= "#03C907" customFunc= {() => handleClick('notification')} color = "blue" icon={<RiNotification3Line />} />
+        <NavButton title="Cart" customFunc= {() => handleClick('cart')} color = "{currentContext}" icon={<FiShoppingCart/>}/>
+        <NavButton title="Chat" dotColor= "#03C907" customFunc= {() => handleClick('cart')} color = "{currentContext}" icon={<BsChatLeft />} />
+        <NavButton title="Notification" dotColor= "#03C907" customFunc= {() => handleClick('notification')} color = "{currentContext}" icon={<RiNotification3Line />} />
 
         <TooltipComponent 
         content="Profile" 
